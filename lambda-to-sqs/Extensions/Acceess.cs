@@ -26,7 +26,5 @@ namespace lambda_to_sqs.Extensions
             var credential = new BasicAWSCredentials(accessKey, secret);
             return new AmazonSQSClient(credentials: credential, region: Amazon.RegionEndpoint.SAEast1);
         }
-
-
     }
 }
