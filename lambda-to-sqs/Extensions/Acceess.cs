@@ -15,10 +15,11 @@ namespace lambda_to_sqs.Extensions
         {
             return new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
-               .AddJsonFile("appsetttings.json")
+               //.AddJsonFile("appsetttings.json")
+               .AddUserSecrets<Function>()//lendo do UserSecrets
+               .AddEnvironmentVariables() //lendo do UserSecrets
                .Build();
         }
-
         public static AmazonSQSClient GetCredentials()
         {
             var accessKey = GetSeetings().GetValue<string>("AccessKey");
